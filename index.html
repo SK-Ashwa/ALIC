@@ -18,7 +18,7 @@
         color: rgb(255, 10, 10);
         background-color: #040404;
         margin: 0 auto;
-		font-size: 7vh;
+		font-size: 6vh;
         animation: infinite;
         text-align: center;
     	}
@@ -49,16 +49,16 @@
 
 	  }
 
-      #cooking {
-        position: fixed;
-		padding-left: 30%;
-		padding-top: 2%;
-        margin: 0 auto;
-        top: 0;
-        width: 100vh;
-        height: 100vh;
-        overflow: hidden;
+	  #cooking {
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 45%;
+	  	transform: translate(-50%, -50%);
+	  	width: 100vh; /* Assuming you want it to be square */
+	  	height: 100vh; /* Assuming you want it to be square */
+	  	overflow: hidden;
       }
+
 
       .bubble {
         position: absolute;
@@ -309,14 +309,14 @@
   </head>
 
   <body>
-	<script>
+	<!--script>
 		// After 2 minutes, redirect to the model viewer page
 		setTimeout(function() {
 		  window.location.href = 'model_viewer.html';
 		}, 15000); // 2 minutes in milliseconds
-	</script>
+	</script-->
 	<h1>ASHWA HYPERLOOP</h1>
-    <h2>Cooking in progress..</h2>
+    <h2>Cooking in progress...</h2>
     <div id="cooking">
       <div class="bubble"></div>
       <div class="bubble"></div>
@@ -333,7 +333,33 @@
         </div>
       </div>
     </div>
-	<h3>Will be served shortly</h3>
+	<h3 class="timer">Estimated time: <span id="timer">1:00</span></h3>
+	<script>
+		// Set the initial time to 2 minutes
+		var timeLeft = 60;
+	
+		// Update the timer every second
+		var timerInterval = setInterval(function() {
+		  var minutes = Math.floor(timeLeft / 60);
+		  var seconds = timeLeft % 60;
+	
+		  // Display the time in the format mm:ss
+		  document.getElementById('timer').innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+	
+		  // Decrease timeLeft by 1 second
+		  timeLeft--;
+	
+		  // Stop the timer when timeLeft reaches 0
+		  if (timeLeft < 0) {
+			clearInterval(timerInterval);
+		  }
+		}, 1000);
+	
+		// After 2 minutes, redirect to the model viewer page
+		setTimeout(function() {
+		  window.location.href = 'model_viewer.html';
+		}, 60000); // 2 minutes in milliseconds
+	  </script>
   </body>
   
 </html>
