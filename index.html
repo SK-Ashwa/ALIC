@@ -13,46 +13,80 @@
         width: 100vw;
         overflow: hidden;
       }
-	  h1{
-        padding-top: 20px;
-        color: rgb(255, 10, 10);
-        background-color: #040404;
-        margin: 0 auto;
-		font-size: 6vh;
-        animation: infinite;
-        text-align: center;
-    	}
-      h2 {
-		padding-top: 50px;
-        margin: 0;
-        top: 25vh;
-        width: 100vw;
-        text-align: center;
-        font-family: "Amatic SC";
-        font-size: 6vh;
-        color: rgb(39, 255, 10);
-        opacity: 0.75;
-        animation: pulse 2.5s linear infinite;
-		display: inline-block;
+      /* Base styles */
+      h1 {
+          padding-top: 20px;
+          color: rgb(255, 10, 10);
+          background-color: #040404;
+          margin: 0 auto;
+          font-size: 6vh;
+          animation: infinite;
+          text-align: center;
       }
-	  h3{
-		margin: 0;
-        top: 25vh;
-        width: 100vw;
-        text-align: center;
-        font-family: "Amatic SC";
-        font-size: 4vh;
-        color: rgb(39, 255, 10);
-        opacity: 0.75;
-        animation: pulse 2.5s linear infinite;
-		display: inline-block;
 
-	  }
+      h2 {
+          padding-top: 50px;
+          margin: 0;
+          top: 25vh;
+          width: 100vw;
+          text-align: center;
+          font-family: "Amatic SC";
+          font-size: 6vh;
+          color: rgb(39, 255, 10);
+          opacity: 0.75;
+          animation: pulse 2.5s linear infinite;
+          display: inline-block;
+      }
+
+      h3 {
+          margin: 0;
+          top: 25vh;
+          width: 100vw;
+          text-align: center;
+          font-family: "Amatic SC";
+          font-size: 4vh;
+          color: rgb(39, 255, 10);
+          opacity: 0.75;
+          animation: pulse 2.5s linear infinite;
+          display: inline-block;
+      }
+
+      /* Media Queries for different screen sizes */
+      @media only screen and (max-width: 768px) {
+          /* Adjust h1 */
+          h1 {
+              font-size: 5vh;
+          }
+          /* Adjust h2 */
+          h2 {
+              font-size: 4vh;
+          }
+          /* Adjust h3 */
+          h3 {
+              font-size: 3vh;
+          }
+      }
+
+      @media only screen and (max-width: 480px) {
+          /* Adjust h1 */
+          h1 {
+              font-size: 4vh;
+          }
+          /* Adjust h2 */
+          h2 {
+              font-size: 3vh;
+          }
+          /* Adjust h3 */
+          h3 {
+              font-size: 2vh;
+          }
+      }
+
 
 	  #cooking {
 	  	position: absolute;
 	  	top: 50%;
-	  	left: 45%;
+	  	left: 42%;
 	  	transform: translate(-50%, -50%);
 	  	width: 100vh; /* Assuming you want it to be square */
 	  	height: 100vh; /* Assuming you want it to be square */
@@ -309,12 +343,12 @@
   </head>
 
   <body>
-	<!--script>
-		// After 2 minutes, redirect to the model viewer page
+	<script>
+		// After 4 seconds, redirect to the model viewer page
 		setTimeout(function() {
-		  window.location.href = 'model_viewer.html';
-		}, 15000); // 2 minutes in milliseconds
-	</script-->
+		  window.location.href = 'mid.html';
+		}, 4000); // 4 seconds in milliseconds
+	</script>
 	<h1>ASHWA HYPERLOOP</h1>
     <h2>Cooking in progress...</h2>
     <div id="cooking">
@@ -333,7 +367,7 @@
         </div>
       </div>
     </div>
-	<h3 class="timer">Estimated time: <span id="timer">1:00</span></h3>
+	<!--h3 class="timer">Estimated time: <span id="timer">1:00</span></h3>
 	<script>
 		// Set the initial time to 2 minutes
 		var timeLeft = 60;
@@ -359,7 +393,7 @@
 		setTimeout(function() {
 		  window.location.href = 'model_viewer.html';
 		}, 60000); // 2 minutes in milliseconds
-	  </script>
+	  </script-->
   </body>
   
 </html>
