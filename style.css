@@ -15,4 +15,34 @@
 		font-size: 6vh;
         animation: infinite;
         text-align: center;
+        display: block;
+    }
+    @media only screen and (max-width: 768px) {
+        /* Adjust h1 */
+        h1 {
+            font-size: 5vh;
+        }
+        /* Adjust h2 */
+        h2 {
+            font-size: 4vh;
+        }
+        /* Adjust h3 */
+        h3 {
+            font-size: 3vh;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        /* Adjust h1 */
+        h1 {
+            font-size: 4vh;
+        }
+        /* Adjust h2 */
+        h2 {
+            font-size: 3vh;
+        }
+        /* Adjust h3 */
+        h3 {
+            font-size: 2vh;
+        }
     }
