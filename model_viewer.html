@@ -32,7 +32,7 @@
     <model-viewer src="hyper.gltf" alt="A 3D model of a car" shadow-intensity="1" camera-controls auto-rotate ar>
     </model-viewer>
     <!-- Add h4 text near AR button -->
-    <h5 id="ar-text">AUGMENTED REALITY</h5>
+    <h5 id="ar-text">Check out the <b>AUGMENTED REALITY</b> Model</h5>
 
 
     <!-- 💁 Include both scripts below to support all browsers! -->
@@ -47,10 +47,26 @@
         /* Positioning for AR text */
         #ar-text {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
+            bottom: 3%;
+            right: 37%;
             color: white;
             font-size: 16px;
+        }
+
+        /* Make whole page black on mobile */
+        @media screen and (max-width: 768px) {
+            body {
+                background-color: black;
+            }
+
+            #ar-text {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                font-size: 16px;
+            }
         }
     </style>
 </body>
