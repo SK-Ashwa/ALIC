@@ -101,27 +101,8 @@
     <script>
       // Wait for the window to load completely
       $(window).on("load", function () {
-        // Check if the 3D model has finished loading
-        var modelLoaded = false; // Initially assume the model is not loaded
-
-        // Check if the 3D model is loaded (replace '#3d-model' with the actual selector for your model)
-        $("#3d-model").on("load", function () {
-          modelLoaded = true; // Set modelLoaded to true when the model has finished loading
-        });
-
-        // Function to check if all elements including the model are loaded
-        function checkAllLoaded() {
-          if (modelLoaded && document.readyState === "complete") {
-            // Fade out the loader-wrapper
-            $(".loader-wrapper").fadeOut("slow");
-          } else {
-            // If the model is not yet loaded or the document is not fully loaded, wait and check again
-            setTimeout(checkAllLoaded, 100); // Check again after 100 milliseconds
-          }
-        }
-
-        // Start checking if all elements are loaded
-        checkAllLoaded();
+        // Fade out the loader-wrapper
+        $(".loader-wrapper").fadeOut("slow");
       });
     </script>
   </body>
