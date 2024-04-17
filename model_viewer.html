@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Hyperloop</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="generator" content="Geany 1.37.1" />
@@ -25,12 +25,12 @@
 
     <!-- Include jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 3D content for your site: -->
     <h1>ASHWA HYPERLOOP</h1>
- 
+
     <div class="loader-wrapper">
       <div class="loader">
         <span class="loader-block"></span>
@@ -46,58 +46,83 @@
     </div>
 
     <model-viewer
-        src="hyper.gltf"
-        alt="A 3D model of a car"
-        shadow-intensity="1"
-        camera-controls
-        auto-rotate
-        ar
+      src="hyper.gltf"
+      alt="A 3D model of a car"
+      shadow-intensity="1"
+      camera-controls
+      auto-rotate
+      ar
     ></model-viewer>
-    
+
     <!-- Add h4 text near AR button -->
     <h5 id="ar-text"><b>AUGMENTED REALITY</b></h5>
 
     <!-- 💁 Include both scripts below to support all browsers! -->
 
     <!-- Loads <model-viewer> for modern browsers: -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+    ></script>
 
     <style>
-        /* Positioning for AR text */
+      /* Positioning for AR text */
+      #ar-text {
+        position: absolute;
+        bottom: 3%;
+        right: 37%;
+        color: white;
+        font-size: 16px;
+      }
+
+      /* Make whole page black on mobile */
+      @media screen and (max-width: 768px) {
+        body {
+          background-color: transparent;
+        }
+
         #ar-text {
-            position: absolute;
-            bottom: 3%;
-            right: 37%;
-            color: white;
-            font-size: 16px;
+          position: absolute;
+          bottom: 5px;
+          left: 70%;
+          transform: translateX(-50%);
+          color: white;
+          font-size: 16px;
         }
-
-        /* Make whole page black on mobile */
-        @media screen and (max-width: 768px) {
-            body {
-                background-color: transparent;
-            }
-
-            #ar-text {
-                position: absolute;
-                bottom: 5px;
-                left: 70%;
-                transform: translateX(-50%);
-                color: white;
-                font-size: 16px;
-            }
-        }
+      }
     </style>
 
     <script>
-        // Wait for the window to load completely
-        $(window).on("load", function() {
+      // Wait for the window to load completely
+      $(window).on("load", function () {
+        // Check if the 3D model has finished loading
+        var modelLoaded = false; // Initially assume the model is not loaded
+
+        // Check if the 3D model is loaded (replace '#3d-model' with the actual selector for your model)
+        $("#3d-model").on("load", function () {
+          modelLoaded = true; // Set modelLoaded to true when the model has finished loading
+        });
+
+        // Function to check if all elements including the model are loaded
+        function checkAllLoaded() {
+          if (modelLoaded && document.readyState === "complete") {
             // Fade out the loader-wrapper
             $(".loader-wrapper").fadeOut("slow");
-        });
+          } else {
+            // If the model is not yet loaded or the document is not fully loaded, wait and check again
+            setTimeout(checkAllLoaded, 100); // Check again after 100 milliseconds
+          }
+        }
+
+        // Start checking if all elements are loaded
+        checkAllLoaded();
+      });
     </script>
-</body>
+  </body>
 </html>
